@@ -8,7 +8,7 @@ import { PalorestProvider } from '../../providers/palorest/palorest'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, restService: PalorestProvider) {
+  constructor(public navCtrl: NavController, public restService: PalorestProvider) {
 
   }
 

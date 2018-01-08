@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SecureStorage } from '@ionic-native/secure-storage';
 import { PalorestProvider } from '../providers/palorest/palorest';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { PalorestProvider } from '../providers/palorest/palorest';
   providers: [
     StatusBar,
     SplashScreen,
+    SecureStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PalorestProvider
   ]
