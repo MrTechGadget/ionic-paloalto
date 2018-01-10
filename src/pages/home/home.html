@@ -4,16 +4,34 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="gotoSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>Palo Alto Admin Tool</h3>
 
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+    This tool can be used by administrators of Palo Alto Firewall(s)
   </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-  <button ion-button (click)="restService.generateKey()"></button>
+  <button ion-button (click)="restService.generateKey()">GenKey</button>
+  <button ion-button (click)="getGateways()">refreshGateways</button>
+  <p></p>
+  <ion-row>
+    <h3>Total Current Users: {{this.totalCurrentUsers}}</h3>
+  </ion-row>
+  <p></p>
+  <ion-list>
+    <button ion-item *ngFor="let gateway of gateways" (click)="itemTapped($event, gateway)">
+      {{gateway.name}}
+      <div class="item-note" item-end>
+        {{gateway.CurrentUsers}}
+      </div>
+    </button>
+  </ion-list>
 </ion-content>
